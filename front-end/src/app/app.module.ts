@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list'
 import { AboutComponent } from './components/about/about.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageService } from './services/message.service';
+import { HttpErrorHandlerService } from './services/http-error-handler.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule, 
     ReactiveFormsModule,
     MatSidenavModule,
     MatRadioModule,
@@ -31,7 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatIconModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [MessageService, HttpErrorHandlerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
