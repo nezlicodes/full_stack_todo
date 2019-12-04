@@ -13,8 +13,7 @@ export class RequestInterceptorService implements HttpInterceptor {
     if (!request.headers.has('Accept')) {
       request = request.clone({headers: request.headers.set('Accept', 'application/json')});
     }
- 
-    request = request.clone({headers: request.headers.set('Accept-Language', 'fr-FR')});
+
  
     return next.handle(request);
  

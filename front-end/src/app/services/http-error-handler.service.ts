@@ -15,7 +15,7 @@ export class HttpErrorHandlerService {
 
   constructor(private messageService: MessageService) { }
 
-  HandleError = (serviceName = "") => <T> (
+  createHandleError = (serviceName = "") => <T> (
     operation = "operation",
     result = {} as T
   ) => this.handleError(serviceName, operation, result)
