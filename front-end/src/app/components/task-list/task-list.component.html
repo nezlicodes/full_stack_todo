@@ -1,5 +1,5 @@
 <h2>All your tasks are here</h2>
-
+<div class="btn-right">
 <button  mat-raised-button  
          color="accent" 
          style="float:right; margin:1em;"
@@ -7,17 +7,21 @@
    <mat-icon>create</mat-icon> 
    Add a new task
 </button>
+</div>
 <br>
+<div  class="center">
 <div *ngFor = "let task of tasks">
-  <mat-expansion-panel>
+  <mat-expansion-panel style="margin-top:1em;">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{task.name}}
       </mat-panel-title>
       <mat-panel-description>
-        {{task.updated_at}}
+        last updated: {{task.updated_at}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    {{task.description}}
+    
+    <p>{{task.description}}</p>
   </mat-expansion-panel>
+</div>
 </div>

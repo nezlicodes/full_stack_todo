@@ -11,16 +11,37 @@
 
 
 <mat-toolbar color="primary">
-   <button mat-button routerLink="/">
-    <mat-icon>home</mat-icon> 
-        My task Manager</button>
-    <div>
-        <button mat-button routerLink="/tasks">Tasks</button>
-        <button mat-button routerLink="/about">  <mat-icon>person</mat-icon> About</button>
-    </div>
-</mat-toolbar>
-  <router-outlet></router-outlet>
 
+    <span  routerLink="/" style="cursor: pointer;">Task Manager</span>
+    <span class="example-spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <button routerLink="/tasks" mat-button>Tasks</button>
+      <button routerLink="/about" mat-button>About</button>
+    </div>
+    <div fxShow="true" fxHide.gt-sm="true">
+      <div class="btn-right">
+      <mat-icon href="#" (click)="sidenav.toggle()">menu</mat-icon>
+    </div>
+    </div>
+
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill class="example-container">
+
+    <mat-sidenav #sidenav fxLayout="column">
+
+      <div fxLayout="column">
+
+        <button (click)="sidenav.toggle()" href="#" mat-button>Close</button>
+        <button routerLink="/tasks" mat-button>Tasks</button>
+        <button routerLink="/about" mat-button>About</button>
+
+      </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
+
+  </mat-sidenav-container>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
