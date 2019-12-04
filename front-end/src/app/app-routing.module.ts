@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { AboutComponent } from './components/about/about.component';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 
 const routes: Routes = [
 	{
@@ -13,6 +13,10 @@ const routes: Routes = [
     {
         path: 'about',
         component: AboutComponent
+    },
+    {
+        path: 'create-task',
+        component: CreateTaskComponent
     }
 
 ];

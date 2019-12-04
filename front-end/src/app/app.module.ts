@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatRadioModule } from '@angular/material/radio'
 import { MatButtonModule } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -8,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatCardModule } from '@angular/material/card'
 import { MatExpansionModule } from "@angular/material/expansion";
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { AppComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskListComponent } from './components/task-list/task-list.component';
@@ -18,11 +18,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from './services/message.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
-    AboutComponent
+    AboutComponent,
+    CreateTaskComponent
   ],
   imports: [
     AppRoutingModule,
@@ -31,7 +33,6 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
     FormsModule,
     HttpClientModule, 
     ReactiveFormsModule,
-    MatSidenavModule,
     MatRadioModule,
     MatListModule,
     MatToolbarModule,
@@ -39,7 +40,8 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
     MatButtonModule,
     MatCardModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule
   ],
   providers: [MessageService, HttpErrorHandlerService],
   bootstrap: [AppComponent]
