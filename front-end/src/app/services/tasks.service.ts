@@ -18,4 +18,10 @@ export class TasksService {
     return this.http.get(environment.apiUrl)
     .pipe( catchError(this.handleError('getAllTasks', [])) )
   }
+
+  createTask(task): Observable<any> {
+    return this.http.post(environment.apiUrl + '/new-todo', task).pipe(
+      catchError(this.handleError('createTask', []))
+    )
+  }
 }
