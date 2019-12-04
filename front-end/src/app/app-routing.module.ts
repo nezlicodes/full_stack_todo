@@ -6,11 +6,6 @@ import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
 	{
-		path: '',
-		component: AppComponent
-		
-	},
-	{
         path: 'tasks',
         component: TaskListComponent
 		

@@ -10,20 +10,16 @@
 
 
 
-
-    <mat-sidenav-container class="example-container">
-        <mat-sidenav #sidenav mode="side">
-          <p><button mat-button (click)="sidenav.toggle()">Hide side-nav</button></p>
-          <p>
-          
-          </p>
-        </mat-sidenav>
-      
-        <mat-sidenav-content>
-          <p><button mat-button (click)="sidenav.toggle()">Show side-nave</button></p>
-          <router-outlet></router-outlet>
-        </mat-sidenav-content>
-      </mat-sidenav-container>
+<mat-toolbar color="primary">
+   <button mat-button routerLink="/">
+    <mat-icon>home</mat-icon> 
+        My task Manager</button>
+    <div>
+        <button mat-button routerLink="/tasks">Tasks</button>
+        <button mat-button routerLink="/about">  <mat-icon>person</mat-icon> About</button>
+    </div>
+</mat-toolbar>
+  <router-outlet></router-outlet>
 
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
