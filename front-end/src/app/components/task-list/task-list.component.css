@@ -1,13 +1,10 @@
 .conatiner {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 .example-container {
-   
-   min-width: 60%;
+  min-width:50%;
   }
   
   .example-list {
@@ -55,4 +52,10 @@
   
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  h2{
+      text-align: center;
+      text-justify: center;
+      padding-top: 1em;
   }
