@@ -38,6 +38,6 @@ export class SingleTaskComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(EditTaskModalComponent,{  width: '30rem',  data: {name: this.task.name, description: this.task.description, completed: this.task.completed, id:this.id}});
-    dialogRef.afterClosed().subscribe(result =>{this.task = result; this.taskService.updateTask(this.id, result)})
+   
   }
 }
