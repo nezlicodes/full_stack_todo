@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -9,11 +10,11 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 
 
 export class TaskListComponent implements OnInit {
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService, private route: ActivatedRoute) { }
   public tasks  = [];
   public done = []
   ngOnInit() {
-    this.tasksService.getAllTasks().subscribe(res => {this.tasks = res; console.log(res)}, err => console.log(err));
+    this.tasks = this.route.snapshot.data.tasks;
   }
 
   drop(event: CdkDragDrop<string[]>) {
