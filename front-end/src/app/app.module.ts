@@ -26,6 +26,7 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { SingleTaskComponent } from './components/single-task/single-task.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import {NgxLoadingModule} from 'ngx-loading'
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     MatSidenavModule,
     MatInputModule, 
     FlexLayoutModule,
-    DragDropModule
+    DragDropModule,
+    NgxLoadingModule.forRoot({})
   ],
   providers: [MessageService, HttpErrorHandlerService],
   bootstrap: [AppComponent]

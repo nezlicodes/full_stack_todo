@@ -22,7 +22,7 @@
     class="example-list"
     (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let task of tasks" cdkDrag>
-     <span class="pointer"  [routerLink]="['/tasks/', task.id ]" routerLinkActive="router-link-active" > {{task.name}}</span>
+     <span class="pointer"  [routerLink]="['/tasks/', task.id ]"> {{task.name}}</span>
     </div>
   </div>
 </div>
@@ -38,7 +38,7 @@
     class="example-list"
     (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let task of done" cdkDrag>
-        <span class="pointer"  [routerLink]="['/tasks/', task.id ]" routerLinkActive="router-link-active" > {{task.name}}</span>
+        <span class="pointer"  [routerLink]="['/tasks/', task.id ]" > {{task.name}}</span>
     </div>
   </div>
 </div>
