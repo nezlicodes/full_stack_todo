@@ -13,7 +13,6 @@ const routes: Routes = [
         path: 'tasks',
         component: TaskListComponent,
         resolve: {tasks: ResolverService}
-		
     },
     {
         path: 'about',

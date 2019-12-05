@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SingleTaskComponent } from '../single-task/single-task.component';
 import { TasksService } from 'src/app/services/tasks.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 export interface Task {
  name: string;
   description: string;
@@ -21,8 +21,9 @@ export class EditTaskModalComponent implements OnInit {
   public id:any;
   public editTaskForm: FormGroup;
   constructor(private fb: FormBuilder,  public dialogRef: MatDialogRef<SingleTaskComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Task, private taskService: TasksService, private ar: ActivatedRoute) { }
+    @Inject(MAT_DIALOG_DATA) public data: Task, private taskService: TasksService, private ar: ActivatedRoute, private router: Router) { }
 
+    public loading = false;
   ngOnInit() {
     this.id = this.ar.snapshot.paramMap.get('id');
     this.editTaskForm = this.fb.group({
@@ -33,6 +34,12 @@ export class EditTaskModalComponent implements OnInit {
   }
 
   updateTask(id) {
-    this.taskService.updateTask(this.data.id, this.editTaskForm.value).subscribe(res => res, err => err)
+    this.loading = true;
+    this.taskService.updateTask(this.data.id, this.editTaskForm.value).subscribe(res => 
+      {this.loading = false;
+      this.router.navigateByUrl('/tasks')}, err => {
+        this.loading = false;
+        alert('your request could not be sent. Please try again')
+      })
   }
 }

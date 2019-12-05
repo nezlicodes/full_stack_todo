@@ -21,3 +21,5 @@
         <button mat-button mat-dialog-close>Cancel</button>
         <button mat-button (click)="updateTask()" [mat-dialog-close]="data">Update</button>
 </mat-dialog-actions>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
