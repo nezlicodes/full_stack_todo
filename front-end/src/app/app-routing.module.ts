@@ -6,6 +6,7 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
 import { SingleTaskComponent } from './components/single-task/single-task.component';
 import { ResolverService } from './services/resolvers/tasks/resolver.service';
 import { SingleResolverService } from './services/resolvers/tasks/single-resolver.service';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 const routes: Routes = [
 	{
@@ -16,7 +17,8 @@ const routes: Routes = [
     },
     {
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent,
+        data: {animation: 'AboutPage'}
     },
     {
         path: 'create-task',
@@ -25,7 +27,13 @@ const routes: Routes = [
     {
         path:'tasks/:id',
         component: SingleTaskComponent,
-        resolve: {task:SingleResolverService}
+        resolve: {task:SingleResolverService},
+        data:{animation: 'SingleTask'}
+    },
+    {
+        path: '',
+        component: HomePageComponent,
+
     }
 
 ];

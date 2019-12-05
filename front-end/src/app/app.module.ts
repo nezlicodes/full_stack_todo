@@ -25,13 +25,15 @@ import { HttpErrorHandlerService } from './services/http-error-handler.service';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { SingleTaskComponent } from './components/single-task/single-task.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
     AboutComponent,
     CreateTaskComponent,
-    SingleTaskComponent
+    SingleTaskComponent,
+    HomePageComponent
   ],
   imports: [
     AppRoutingModule,
