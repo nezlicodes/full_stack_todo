@@ -19,7 +19,7 @@
     #todoList="cdkDropList"
     [cdkDropListData]="tasks"
     [cdkDropListConnectedTo]="[doneList]"
-    class="example-list"
+    class="example-list "
     (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let task of tasks" cdkDrag>
      <span class="pointer"  [routerLink]="['/tasks/', task.id ]"> {{task.name}}</span>
