@@ -1,4 +1,4 @@
-<h2>All your tasks are here</h2>
+<h2>All your tasks are here 
 <div class="btn-right">
 <button  mat-raised-button  
          color="accent" 
@@ -9,19 +9,32 @@
 </button>
 </div>
 <br>
-<div  class="center">
-<div *ngFor = "let task of tasks">
-  <mat-expansion-panel style="margin-top:1em;">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{task.name}}
-      </mat-panel-title>
-      <mat-panel-description>
-        last updated: {{task.updated_at}}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    
-    <p>{{task.description}}</p>
-  </mat-expansion-panel>
+<div class="conatiner">
+<div class="example-container">
+  <h2>To do</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="tasks"
+    [cdkDropListConnectedTo]="[doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let task of tasks" cdkDrag>{{task.name}}</div>
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>Done</h2>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let task of done" cdkDrag>{{task.name}}</div>
+  </div>
 </div>
 </div>

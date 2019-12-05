@@ -12,22 +12,23 @@
 
 <mat-toolbar color="primary">
 
+  <div fxShow="true" fxHide.gt-sm="true">
+    <div class="btn-right">
+    <mat-icon href="#"  style="padding-right: 1em ;" (click)="sidenav.toggle()">menu</mat-icon>
+  </div>
+  </div>
     <span  routerLink="/" style="cursor: pointer;">Task Manager</span>
     <span class="example-spacer"></span>
     <div fxShow="true" fxHide.lt-md="true">
       <button routerLink="/tasks" mat-button>Tasks</button>
       <button routerLink="/about" mat-button>About</button>
     </div>
-    <div fxShow="true" fxHide.gt-sm="true">
-      <div class="btn-right">
-      <mat-icon href="#" (click)="sidenav.toggle()">menu</mat-icon>
-    </div>
-    </div>
 
-  </mat-toolbar>
-  <mat-sidenav-container fxFlexFill class="example-container">
 
-    <mat-sidenav #sidenav fxLayout="column">
+</mat-toolbar>
+<mat-sidenav-container fxFlexFill class="example-container">
+
+    <mat-sidenav #sidenav fxLayout="column" >
 
       <div fxLayout="column">
 
@@ -41,7 +42,7 @@
 
     <mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
 
-  </mat-sidenav-container>
+</mat-sidenav-container>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

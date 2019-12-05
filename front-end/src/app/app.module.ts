@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from './services/message.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
+import { DragDropModule } from "@angular/cdk/drag-drop";
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
     MatSelectModule,
     MatSidenavModule,
     MatInputModule, 
-    FlexLayoutModule
+    FlexLayoutModule,
+    DragDropModule
   ],
   providers: [MessageService, HttpErrorHandlerService],
   bootstrap: [AppComponent]
