@@ -11,6 +11,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatInputModule } from "@angular/material/input";
 import {  MatSidenavModule } from "@angular/material/sidenav";
+import { MatDialogModule } from "@angular/material/dialog";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +27,8 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { SingleTaskComponent } from './components/single-task/single-task.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import {NgxLoadingModule} from 'ngx-loading'
+import {NgxLoadingModule} from 'ngx-loading';
+import { EditTaskModalComponent } from './components/edit-task-modal/edit-task-modal.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import {NgxLoadingModule} from 'ngx-loading'
     AboutComponent,
     CreateTaskComponent,
     SingleTaskComponent,
-    HomePageComponent
+    HomePageComponent,
+    EditTaskModalComponent
   ],
   imports: [
     AppRoutingModule,
@@ -55,11 +58,13 @@ import {NgxLoadingModule} from 'ngx-loading'
     MatSelectModule,
     MatSidenavModule,
     MatInputModule, 
+    MatDialogModule,
     FlexLayoutModule,
     DragDropModule,
     NgxLoadingModule.forRoot({})
   ],
   providers: [MessageService, HttpErrorHandlerService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditTaskModalComponent]
 })
 export class AppModule { }

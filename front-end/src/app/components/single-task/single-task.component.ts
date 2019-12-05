@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from 'src/app/services/tasks.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditTaskModalComponent } from '../edit-task-modal/edit-task-modal.component';
 
 @Component({
   selector: 'app-single-task',
@@ -12,9 +14,10 @@ export class SingleTaskComponent implements OnInit {
   public id:any;
   public task:any
   public loading = false;
-  constructor(private activatedRoute: ActivatedRoute, private taskService: TasksService, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private taskService: TasksService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.task = this.activatedRoute.snapshot.data.task;
   }
 
@@ -30,26 +33,11 @@ export class SingleTaskComponent implements OnInit {
         this.loading = false;
         console.log(err);
       }
-    )
+    );
   }
 
-  animal: string;
-  name: string;
-
-  constructor(public dialog: MatDialog) {}
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
-      data: {name: this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
+  openDialog() {
+    const dialogRef = this.dialog.open(EditTaskModalComponent,{  width: '30rem',  data: {name: this.task.name, description: this.task.description, completed: this.task.completed}});
+    dialogRef.afterClosed().subscribe(result =>{ this.taskService.updateTask(this.id, result).subscribe(res=> console.log('yaay'), err=> console.log(err))})
   }
-
-}
-
 }
