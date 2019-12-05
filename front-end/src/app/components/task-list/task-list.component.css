@@ -59,3 +59,7 @@
       text-justify: center;
       padding-top: 1em;
   }
+
+  .pointer {
+      cursor: pointer;
+  }

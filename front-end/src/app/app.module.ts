@@ -24,12 +24,14 @@ import { MessageService } from './services/message.service';
 import { HttpErrorHandlerService } from './services/http-error-handler.service';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { SingleTaskComponent } from './components/single-task/single-task.component';
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
     AboutComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    SingleTaskComponent
   ],
   imports: [
     AppRoutingModule,

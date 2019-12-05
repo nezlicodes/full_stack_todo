@@ -24,4 +24,10 @@ export class TasksService {
       catchError(this.handleError('createTask', []))
     )
   }
+
+  getSingleTask(taskId): Observable<any> {
+    return this.http.get(environment.apiUrl + '/todos/' + taskId).pipe(
+      catchError(this.handleError('getSingleTask', []))
+    )
+  }
 }
