@@ -39,7 +39,7 @@
       </div>
 
     </mat-sidenav>
-    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+   
     <mat-sidenav-content [@routeAnimations]="prepareRoute(outlet)" fxFlexFill><router-outlet #outlet="outlet"></router-outlet></mat-sidenav-content>
 
 </mat-sidenav-container>

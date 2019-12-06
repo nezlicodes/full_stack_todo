@@ -33,7 +33,7 @@ export class EditTaskModalComponent implements OnInit {
     })
   }
 
-  updateTask(id) {
+  updateTask() {
     this.loading = true;
     this.taskService.updateTask(this.data.id, this.editTaskForm.value).subscribe(res => 
       {this.loading = false;
