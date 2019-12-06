@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ActivatedRoute } from '@angular/router';
+
+
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -10,7 +12,10 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export class TaskListComponent implements OnInit {
-  constructor(private tasksService: TasksService, private route: ActivatedRoute) { }
+  constructor(private tasksService: TasksService, private route: ActivatedRoute) {
+
+   }
+  public loading:boolean;
   public tasks  = [];
   public done = []
   ngOnInit() {
@@ -26,5 +31,6 @@ export class TaskListComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+
   }
 }
